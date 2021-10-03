@@ -3,7 +3,7 @@
 }
 
 :root {
-  font-family: "Verdana", sans-serif;
+  font-family: "Tahoma", sans-serif;
   font-size: 16px;
   background: #fff;
   color: #444;
@@ -18,15 +18,54 @@ a, a:hover {
   color: #00979D;
 }
 
-section {}
+header, main, footer {
+  max-width: 1024px;
+}
+
+header {
+  margin: 1em;
+  padding: 1em;
+  border-radius: 1em;
+  background: #eee;
+}
+
+header h1 {
+  padding: 0;
+  margin: 0;
+}
+
+main {
+  margin: 1em;
+}
+
+footer {
+  margin: 1em;
+  padding: 1em;
+  border-radius: 1em;
+  background: #eee;
+}
+
+section {
+  border-radius: 1em;
+  margin-bottom: 1em;
+  padding: 1em;
+  box-shadow: 2px 4px 4px #eee;
+}
 
 iframe {
   display: block;
   margin: 0.5em auto;
+  border: 1px solid #444;
+  border-radius: 1em;
+}
+
+a.link-to-code {
+  display: block;
+  text-align: center;
 }
 
 form {
-
+  padding: 1em;
 }
 
 form textarea {
@@ -34,13 +73,26 @@ form textarea {
   width: 100%;
 }
 
+form label {
+  display: block;
+  color: #888;
+  font-size: 0.8em;
+}
+
 form button#submit {
   display: block;
   width: 100%;
+  background: #00979D;
+  color: #fff;
+  cursor: pointer;
+  border: 1px solid #eee;
+  padding: 0.5em;
 }
 
 form pre {
   display: block;
   width: 100%;
   padding: 0.5em;
+  background: #eee;
+  min-height: 3em;
 }

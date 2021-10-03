@@ -6,9 +6,10 @@
 </head>
 <body>
 <form>
-  <label>Input</label>
-  <textarea id="input"></textarea>
+  <label for="input">Input</label>
+  <textarea id="input" rows="2"></textarea>
   <button id="submit" type="button">Submit</button>
+  <hr>
   <label>Output</label>
   <pre id="output"></pre>
 </form>
@@ -31,7 +32,8 @@ class KeyboardApp {
   }
 
   /*
-  The 'submit' logic is just placeholder for what you want to do. For our
+  This 'submit' logic is just placeholder for what you actually want to do.
+  Normally, this is where we'd submit the input data to a server. For our
   example, we just print the text into the output field.
    */
   submit () {
