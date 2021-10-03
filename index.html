@@ -16,11 +16,47 @@
   <section>
     <h2>Introduction</h2>
     <p>
-      This website contains supplementary content for the <a href="https://www.zooniverse.org/" target="_blank">Zooniverse</a>
+      Welcome! This website contains supplementary content for the <a href="https://www.zooniverse.org/" target="_blank">Zooniverse</a>
       article published on <a href="https://startwords.cdh.princeton.edu/" target="_blank">Startwords</a>
       in 2021/2022. Contains HTML + JavaScript examples for the multi-language
       transcription keyboard built for the <a href="https://github.com/zooniverse/scribes-of-the-cairo-geniza" target="_blank">Scribes of the Cairo Geniza</a>
       website.
+    </p>
+    <p>
+      The following sections describe <b>how to build your own basic
+      multi-language transcription keyboard</b> from scratch, and is designed
+      for <i>researchers and programmers with some understanding of HTML and
+      JavaScript.</i>
+    </p>
+    <p>
+      If you're a more experienced web developer who's very familiar with React,
+      you may want to jump straight into the <a href="https://github.com/zooniverse/scribes-of-the-cairo-geniza" target="_blank">Scribes of the Cairo Geniza repo</a>,
+      possibly starting with the <a href="https://github.com/zooniverse/scribes-of-the-cairo-geniza/blob/master/src/components/AnnotationKeyboard.jsx" target="_blank">AnnotationKeyboard</a>
+      component.
+    </p>
+  </section>
+  <section>
+    <h2>The Basics: A Form With Some Text Input</h2>
+    <p>
+      Let's start by setting up a very basic web form. It has one text input
+      field, one submit button, and one output panel.
+    </p>
+    <iframe src="./section-01.html" width="640" height="160"></iframe>
+    <a class="link-to-code" href="https://github.com/shaunanoordin/zooniverse-startwords/blob/master/section-01.html" target="_blank">(view source code)</a>
+    <p>
+      This example breaks down the idea of a "text transcription website" to its
+      simplest form. The text input field is what the user types into, and the
+      output panel is (let's pretend) the server they're submitting their
+      transcriptions to.
+    </p>
+    <p>
+      Everything we build from this point onwards is meant to solve one very
+      simple problem: <b>how do we allow users to type, into that text input
+      field, in a language that's not native to theirs?</b> e.g. how do we help
+      a user type in the text "ごはんを食べる" when they only have a
+      US-International QWERTY keyboard, and we don't want to ask them to futz
+      about in their computer settings to install a Japanese language pack?
+    </p>
   </section>
 </main>
 <footer>
