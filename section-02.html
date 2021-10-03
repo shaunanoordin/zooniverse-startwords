@@ -51,9 +51,15 @@ class KeyboardApp {
     output.innerText = text
   }
 
+  /*
+  setupKeyboard() does exactly what it says on the tin.
+   */
   setupKeyboard () {
-    //
+    // In this version, we've hardcoded the keyboard keys into the HTML
     const keyboardKeys = Array.from(document.getElementsByClassName('keyboard-key'))
+
+    // We're going through each <button#keyboard-key> and attaching a simple
+    // 'insert the character associated with this button' action.
     keyboardKeys.forEach((keyboardKey) => {
       const char = keyboardKey.dataset.char
       keyboardKey.onclick = () => { this.insertChar(char) }
