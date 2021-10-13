@@ -120,9 +120,25 @@ form pre {
   justify-content: center;
 }
 
+#keyboards-list {
+  background: #edc;
+  padding: 0.5em;
+  text-align: center;
+}
+
+#keyboards-list span {
+  color: #888;
+}
+
+#keyboards-list button {
+  cursor: pointer;
+  margin: 0 0.25em;
+}
+
 .keyboard-key {
   cursor: pointer;
   display: inline-block;
+  margin: 0.125em;
   width: 3em;
   height: 3em;
 }

@@ -8,6 +8,7 @@
 <form>
   <label for="input">Input</label>
   <textarea id="input" rows="2"></textarea>
+  <div id="keyboards-list"><span>Keyboards:</span></div>
   <div id="keyboard"></div>
   <button id="submit" type="button">Submit</button>
   <hr>
@@ -25,6 +26,7 @@ class KeyboardApp {
     this.html = {
       input: document.getElementById('input'),
       keyboard: document.getElementById('keyboard'),
+      keyboardsList: document.getElementById('keyboards-list'),
       submit: document.getElementById('submit'),
       output: document.getElementById('output'),
     }
@@ -33,7 +35,10 @@ class KeyboardApp {
     this.html.input.onkeypress = this.onKeyPress.bind(this)
     this.html.submit.onclick = this.submit.bind(this)
 
-    // Let's set the current keyboard language
+    // Let's prepare the list of selectable keyboards
+    this.setupKeyboardsList()
+
+    // Let's set the default keyboard language
     this.activeKeyboard = JAPANESE_KEYBOARD
     this.setupKeyboard()
   }
@@ -46,6 +51,22 @@ class KeyboardApp {
   submit () {
     const text = input.value
     output.innerText = text
+  }
+
+  /*
+  setupKeyboardsList() does exactly what it says on the tin.
+   */
+  setupKeyboardsList () {
+    Object.entries(KEYBOARDS).forEach(([language, keyboard]) => {
+      const buttonKeyboard = document.createElement('button')
+      buttonKeyboard.type = 'button'
+      buttonKeyboard.innerText = language
+      buttonKeyboard.onclick = () => {
+        this.activeKeyboard = keyboard
+        this.setupKeyboard()
+      }
+      this.html.keyboardsList.appendChild(buttonKeyboard)
+    })
   }
 
   /*
@@ -210,6 +231,12 @@ const JAPANESE_KEYBOARD = {
   'KeyU': 'う',
   'KeyE': 'え',
   'KeyO': 'お',
+}
+
+const KEYBOARDS = {
+  '(No keyboard)': undefined,
+  'English': ENGLISH_KEYBOARD,
+  'Japanese': JAPANESE_KEYBOARD,
 }
 
 var app = new KeyboardApp()  // Let's start the app!
