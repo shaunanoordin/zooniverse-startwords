@@ -23,7 +23,7 @@
       website.
     </p>
     <p>
-      The following sections describe <b>how to build your own basic
+      The following sections describe <b>how to build your own basic on-screen
       multi-language transcription keyboard</b> from scratch, and is designed
       for <i>researchers and programmers with some understanding of HTML and
       JavaScript.</i>
@@ -75,7 +75,7 @@
       left-to-right. We'll build up to more complex alphabets, such as Hebrew
       and its right-to-left layout, in later sections.
     </p>
-    <iframe src="./section-02.html" width="640" height="240"></iframe>
+    <iframe src="./section-02.html" width="640" height="280"></iframe>
     <a class="link-to-code" href="https://github.com/shaunanoordin/zooniverse-startwords/blob/master/section-02.html" target="_blank">(view source code)</a>
     <p>
       The code here is simple, but we already come across a problem: what if the
@@ -93,7 +93,7 @@
       <code>selectionStart</code>, <code>selectionEnd</code>, and <code>setSelectionRange</code>
       to interact with the "text cursor" on the text input field.
     </p>
-    <iframe src="./section-03.html" width="640" height="240"></iframe>
+    <iframe src="./section-03.html" width="640" height="280"></iframe>
     <a class="link-to-code" href="https://github.com/shaunanoordin/zooniverse-startwords/blob/master/section-03.html" target="_blank">(view source code)</a>
     <p>
       In the example above, we've done two things in the code: 1. we ensure the
@@ -111,7 +111,7 @@
     <p>
       Alright, so we now have an on-screen keyboard. But what about the user's
       physical keyboard? A user might find it easier to use their physical
-      keyboard to do text transcription, compared to clicking each onscreen
+      keyboard to do text transcription, compared to clicking each on-screen
       keyboard button individually. With that in mind, let's try to translate
       those physical key presses into our custom character input.
     </p>
@@ -120,11 +120,11 @@
       the Japanese character あ is inserted into the text field instead. Same
       for the other characters: A -> あ , I -> い, U -> う, E -> え, O -> お
     </p>
-    <iframe src="./section-04.html" width="640" height="240"></iframe>
+    <iframe src="./section-04.html" width="640" height="280"></iframe>
     <a class="link-to-code" href="https://github.com/shaunanoordin/zooniverse-startwords/blob/master/section-04.html" target="_blank">(view source code)</a>
     <p class="note">
-      If you have an onscreen keyboard AND you're capturing physical key input,
-      it's a good idea to label those onscreen keyboard buttons with the
+      If you have an on-screen keyboard AND you're capturing physical key input,
+      it's a good idea to label those on-screen keyboard buttons with the
       corresponding physical keys.
     </p>
     <p>
@@ -143,9 +143,33 @@
       shift/capslock is off) or <code>key='A'</code> (if shift/capslock is on).
     </p>
   </section>
-  <ul>
-    <li></li>
-  </ul>
+  <h2>Intermision</h2>
+  <section>
+    <a name="section-05"></a>
+    <h3>05. Code Cleanup</h3>
+    <p>
+      Before we proceed with the advanced considerations of creating an
+      on-screen keyboard, let's clean up our code.
+    </p>
+    <p>
+      In the example below, you won't see many changes in terms of UI
+      functionality, but a lot of the source code was altered. Notably:
+    </p>
+    <ul>
+      <li>
+        The Japanese characters have now been compiled into a "Japanese
+        keyboard" data object, setting the stage for <b>dynamically-generated
+        keyboards</b> for different languages.
+      </li>
+      <li>
+        Similarly, we now have "English keyboard" and "QWERTY layout" data
+        objects that help ensure <b>the visual layout of the on-screen keyboard
+        matches the user's physical keyboard.</b>
+      </li>
+    </ul>
+    <iframe src="./section-05.html" width="640" height="280"></iframe>
+    <a class="link-to-code" href="https://github.com/shaunanoordin/zooniverse-startwords/blob/master/section-05.html" target="_blank">(view source code)</a>
+  </section>
 </main>
 <footer>
   <a target="_blank" href="https://www.zooniverse.org/">Zooniverse</a>
