@@ -142,14 +142,23 @@
       keyboard, we get <code>code='KeyA'</code>, and <code>key='a'</code> (if
       shift/capslock is off) or <code>key='A'</code> (if shift/capslock is on).
     </p>
+    <p>
+      <b>WARNING:</b> now that we know <i>how</i> to capture and replace
+      keyboard input, we also need to learn <i>when not to do so.</i> Sometimes,
+      when a user presses the 'A' key, they just want to type in the character
+      'A', not 'あ'! <b>Always allow your users the option to disable your
+      on-screen keyboard.</b> The example above has no such option, but we'll
+      explore how we can do this once we jump into the "multi-language"
+      functionality of our onscreen keyboard.
+    </p>
   </section>
-  <h2>Intermision</h2>
+  <h2>Multi-Language Keyboards</h2>
   <section>
     <a name="section-05"></a>
     <h3>05. Code Cleanup</h3>
     <p>
       Before we proceed with the advanced considerations of creating an
-      on-screen keyboard, let's clean up our code.
+      on-screen keyboard with multiple languages, let's clean up our code.
     </p>
     <p>
       In the example below, you won't see many changes in terms of UI
