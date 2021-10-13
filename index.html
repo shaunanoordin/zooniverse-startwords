@@ -70,10 +70,10 @@
       to the end of the text input field.
     </p>
     <p class="note">
-      (Note: we're using the Japanese hiragana characters あいうえお here because
+      Note: we're using the Japanese hiragana characters あいうえお here because
       they map easily to the English characters AIUEO, and are written
       left-to-right. We'll build up to more complex alphabets, such as Hebrew
-      and its right-to-left layout, in later sections.)
+      and its right-to-left layout, in later sections.
     </p>
     <iframe src="./section-02.html" width="640" height="240"></iframe>
     <a class="link-to-code" href="https://github.com/shaunanoordin/zooniverse-startwords/blob/master/section-02.html" target="_blank">(view source code)</a>
@@ -120,12 +120,27 @@
       the Japanese character あ is inserted into the text field instead. Same
       for the other characters: A -> あ , I -> い, U -> う, E -> え, O -> お
     </p>
-    <iframe src="./section-03.html" width="640" height="240"></iframe>
+    <iframe src="./section-04.html" width="640" height="240"></iframe>
     <a class="link-to-code" href="https://github.com/shaunanoordin/zooniverse-startwords/blob/master/section-04.html" target="_blank">(view source code)</a>
     <p class="note">
       If you have an onscreen keyboard AND you're capturing physical key input,
       it's a good idea to label those onscreen keyboard buttons with the
       corresponding physical keys.
+    </p>
+    <p>
+      One of the biggest considerations here is <b>what kind of physical
+      keyboard does your user have?</b> In our examples, we're making a very
+      hard assumption that all our users have US-International QWERTY keyboards,
+      and we choose to map <i>physical keyboard keys</i> to their replacement
+      characters.
+    </p>
+    <p class="note">
+      Note: there are different ways to get what the user typed into a text
+      field. <code>keyboardEvent.code</code> corresponds to the PHYSICAL key on
+      the keyboard. <code>keyboardEvent.key</code> corresponds to the TEXT VALUE
+      of the key. If a user presses the 'A' key on a US-International QWERTY
+      keyboard, we get <code>code='KeyA'</code>, and <code>key='a'</code> (if
+      shift/capslock is off) or <code>key='A'</code> (if shift/capslock is on).
     </p>
   </section>
   <ul>
