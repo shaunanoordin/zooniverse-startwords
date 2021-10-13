@@ -64,7 +64,7 @@
       A straightforward solution is to create an on-screen keyboard for the
       user. In this example, we create an a Japanese keyboard with 5 characters.
       Clicking on each button/"keyboard key" adds the corresponding character
-      to the end of the text input box.
+      to the end of the text input field.
     </p>
     <p class="note">
       (Note: we're using the Japanese hiragana characters あいうえお here because
@@ -83,9 +83,11 @@
     </p>
   </section>
   <section>
-    <h2>...</h2>
+    <h2>Text Selection</h2>
     <p>
-      ...
+      This is actually a solved problem: we use the standard <code>HTMLInputElement</code>'s
+      <code>selectionStart</code>, <code>selectionEnd</code>, and <code>setSelectionRange</code>
+      to interact with the "text cursor" on the text input field.
     </p>
     <iframe src="./section-03.html" width="640" height="240"></iframe>
     <a class="link-to-code" href="https://github.com/shaunanoordin/zooniverse-startwords/blob/master/section-03.html" target="_blank">(view source code)</a>
