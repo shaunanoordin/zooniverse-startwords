@@ -83,7 +83,7 @@ class KeyboardApp {
         const char = this.activeKeyboard[key]
         if (char) {
           buttonKey.innerText = char
-          buttonKey.onClick = () => { this.inserChar(char) }
+          buttonKey.onclick = () => { this.insertChar(char) }
         } else {
           buttonKey.innerText = ' '
         }
