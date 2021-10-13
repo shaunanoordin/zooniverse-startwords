@@ -39,7 +39,7 @@ class KeyboardApp {
     this.setupKeyboardsList()
 
     // Let's set the default keyboard language
-    this.activeKeyboard = JAPANESE_KEYBOARD
+    this.activeKeyboard = EMOJI_KEYBOARD
     this.setupKeyboard()
   }
 
@@ -233,10 +233,46 @@ const JAPANESE_KEYBOARD = {
   'KeyO': 'お',
 }
 
+/*
+Emoji Keyboard: a joke keyboard to demonstrate how easy it is to add map keys
+to characters of any 'language'.
+ */
+const EMOJI_KEYBOARD = {
+  'KeyQ': '😃',
+  'KeyW': '😅',
+  'KeyE': '🤣',
+  'KeyR': '🥰',
+  'KeyT': '😉',
+  'KeyY': '😂',
+  'KeyU': '🥵',
+  'KeyI': '🥶',
+  'KeyO': '😍',
+  'KeyP': '😵',
+  // --------
+  'KeyA': '🐈',
+  'KeyS': '🐕',
+  'KeyD': '🐒',
+  'KeyF': '🕊️',
+  'KeyG': '🐓',
+  'KeyH': '🐟',
+  'KeyJ': '🐙',
+  'KeyK': '🦑',
+  'KeyL': '🦋',
+  // --------
+  'KeyZ': '❤️',
+  'KeyX': '🧡',
+  'KeyC': '💛',
+  'KeyV': '💚',
+  'KeyB': '💙',
+  'KeyN': '💜',
+  'KeyM': '🤍',
+}
+
 const KEYBOARDS = {
   '(No keyboard)': undefined,
   'English': ENGLISH_KEYBOARD,
   'Japanese': JAPANESE_KEYBOARD,
+  'Emoji': EMOJI_KEYBOARD,
 }
 
 var app = new KeyboardApp()  // Let's start the app!

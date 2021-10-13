@@ -183,10 +183,43 @@
     <a name="section-06"></a>
     <h3>06. Language Selection</h3>
     <p>
-      ...
+      Now that we have cleaned up the code so that the English and Japanese
+      keyboards are stored data objects, we see that it's very simple to add
+      new languages/keyboards to the system, and to allow the user to switch
+      between those languages/keyboards.
+    </p>
+    <p>
+      To illustrate this point, we've added a joke "Emoji keyboard" that maps
+      QWERTY keys to arbitrary emoji characters. Typing in "Hello world" into
+      input text field will result in the emoji "text" of "🐟🤣🦋🦋😍 😅😍🥰🦋🐒"
     </p>
     <iframe src="./section-06.html" width="640" height="420"></iframe>
     <a class="link-to-code" href="https://github.com/shaunanoordin/zooniverse-startwords/blob/master/section-06.html" target="_blank">(view source code)</a>
+    <p class="note">
+      Note: there is an option to select "(No keyboard)" here, which disables
+      the on-screen keyboard as well as key capture. As mentioned earlier,
+      <b>always allow your users the option to disable your on-screen
+      keyboard.</b>
+    </p>
+    <p>
+      At this point, you might realise one limitation to our solution: our code
+      simply re-maps the QWERTY keyboard, so we can only have one character for
+      one key.
+    </p>
+    <p>
+      While we started our examples with a very simple 5-character Japanese
+      keyboard, we unfortunately have to discard it since a proper,
+      fully-functional Japanese keyboard is beyond the scope of this work. The
+      Japanese <i>hiragana</i> writing system alone has 48 common base
+      characters, which can be further modified with diacritics, character size,
+      etc.
+    </p>
+    <p>
+      In the next section, we'll start adding a Hebrew keyboard. The Hebrew
+      alphabet has 22 characters, which will map very easily to English/QWERTY's
+      26 characters. However, the Hebrew alphabet will introduce a new wrinkle:
+      <b>left-to-right text,</b> which we'll need to solve.
+    </p>
   </section>
 </main>
 <footer>
