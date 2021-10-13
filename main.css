@@ -3,7 +3,7 @@
 }
 
 :root {
-  font-family: "Comic Sans MS", "Comic Sans", "Tahoma", sans-serif;
+  font-family: /*"Comic Sans MS", "Comic Sans",*/ "Tahoma", sans-serif;
   font-size: 16px;
   background: #fff;
   color: #444;
@@ -36,6 +36,12 @@ header h1 {
 
 main {
   margin: 1em;
+}
+
+main h2 {
+  padding: 1em;
+  margin: 1em;
+  border-bottom: 1px solid #444;
 }
 
 footer {
