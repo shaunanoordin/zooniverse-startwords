@@ -64,6 +64,12 @@ a.link-to-code {
   text-align: center;
 }
 
+p.note {
+  color: #888;
+  font-style: italic;
+  font-size: 0.8em;
+}
+
 form {
   padding: 1em;
 }
