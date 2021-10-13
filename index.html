@@ -218,7 +218,52 @@
       In the next section, we'll start adding a Hebrew keyboard. The Hebrew
       alphabet has 22 characters, which will map very easily to English/QWERTY's
       26 characters. However, the Hebrew alphabet will introduce a new wrinkle:
-      <b>left-to-right text,</b> which we'll need to solve.
+      <b>right-to-left text,</b> which we'll need to solve.
+    </p>
+  </section>
+  <section>
+    <a name="section-07"></a>
+    <h3>07. Hebrew and RTL languages</h3>
+    <p>
+      With the given assumption that English is the "default" language of web
+      code (yes, we know, that discussion is a can of worms), it's unsurprising
+      that that layout of most web pages default to left-to-right,
+      top-to-bottom.
+    </p>
+    <p>
+      As a result, we must be conscientious when we create on-screen keyboards
+      for languages to read right-to-left, such as Hebrew and Arabic. In the
+      example below, we've done two things:
+    </p>
+    <ul>
+      <li>
+        We've upgraded the keyboard data objects so each language, in addition
+        to having characters, also has an explicit 'direction'. (Either 'ltr' or
+        'rtl')
+      </li>
+      <li>
+        The text input field has an explicit CSS <code>direction</code> value
+        that changes depending on the active keyboard.
+      </li>
+    </ul>
+    <iframe src="./section-07.html" width="640" height="420"></iframe>
+    <a class="link-to-code" href="https://github.com/shaunanoordin/zooniverse-startwords/blob/master/section-07.html" target="_blank">(view source code)</a>
+    <p>
+      Since we're only interested in creating a functional on-screen keyboard,
+      we only modified the CSS direction of the text input field. On the other
+      hand, if you're creating, e.g. <i>a whole website</i> that supports both
+      LTR and RTL languages, then you need to be conscientous about the
+      <i>layout of your entire website,</i> and whether that layout needs to be
+      flipped along the horizontal axis to make sense to RTL readers.
+    </p>
+    <p class="note">
+      Fun(?) Note: mixing LTR text with RTL text can lead to extremely confusing
+      UI interactions. For example, in the text input field below, using your
+      mouse, try to highlight the word APPLE plus one character before it and
+      one character after it, i.e. <code>"הAPPLEן"</code>. Good luck!
+    </p>
+    <p>
+      <input type="text" value="הגדלAPPLEהקטןBANANAסובב" style="font-size: 2em; color: #666; width:80%; margin: 0 auto; display: block;">
     </p>
   </section>
 </main>
