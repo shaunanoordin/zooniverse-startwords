@@ -25,7 +25,7 @@ header, main, footer {
 header {
   margin: 1em;
   padding: 1em;
-  border-radius: 1em;
+  border-radius: 0.2em;
   background: #eee;
 }
 
@@ -47,12 +47,12 @@ main h2 {
 footer {
   margin: 1em;
   padding: 1em;
-  border-radius: 1em;
+  border-radius: 0.2em;
   background: #eee;
 }
 
 section {
-  border-radius: 1em;
+  border-radius: 0.2em;
   margin-bottom: 1em;
   padding: 1em;
   box-shadow: 2px 4px 4px #eee;
@@ -107,4 +107,13 @@ form pre {
   padding: 0.5em;
   background: #eee;
   min-height: 3em;
+}
+
+.keyboard {}
+
+.keyboard-key {}
+.keyboard-key span {
+  display: block;
+  font-size: 0.5em;
+  color: #888;
 }

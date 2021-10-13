@@ -62,7 +62,7 @@
   </section>
   <section>
     <a name="section-02"></a>
-    <h3>02. A Simple Keyboard</h3>
+    <h3>02. A Simple On-screen Keyboard</h3>
     <p>
       A straightforward solution is to create an on-screen keyboard for the
       user. In this example, we create an a Japanese keyboard with 5 characters.
@@ -78,7 +78,7 @@
     <iframe src="./section-02.html" width="640" height="240"></iframe>
     <a class="link-to-code" href="https://github.com/shaunanoordin/zooniverse-startwords/blob/master/section-02.html" target="_blank">(view source code)</a>
     <p>
-      The code here is simple, but we already come across a problem: what if a
+      The code here is simple, but we already come across a problem: what if the
       user wants to add a Japanese character in the middle (instead of at the
       end) of the text box? This is, after all, a very basic function for a
       normal text box - you can place the text cursor/caret at any part of
@@ -95,7 +95,42 @@
     </p>
     <iframe src="./section-03.html" width="640" height="240"></iframe>
     <a class="link-to-code" href="https://github.com/shaunanoordin/zooniverse-startwords/blob/master/section-03.html" target="_blank">(view source code)</a>
+    <p>
+      In the example above, we've done two things in the code: 1. we ensure the
+      Japanese characters are inserted at the position of the text cursor/caret,
+      and 2. we ensure the text input maintains focus after the insertion. These
+      may seem like minor coding considerations, but they're important to
+      <b>ensure a consistent UX (User Experience), since users often have
+      pre-set expectations on how UI (User Interface) elements should
+      behave</b>.
+    </p>
   </section>
+  <section>
+    <a name="section-04"></a>
+    <h3>04. Physical Keyboard Key Capture</h3>
+    <p>
+      Alright, so we now have an on-screen keyboard. But what about the user's
+      physical keyboard? A user might find it easier to use their physical
+      keyboard to do text transcription, compared to clicking each onscreen
+      keyboard button individually. With that in mind, let's try to translate
+      those physical key presses into our custom character input.
+    </p>
+    <p>
+      In this example, when the user presses the 'A' key on their keyboard,
+      the Japanese character あ is inserted into the text field instead. Same
+      for the other characters: A -> あ , I -> い, U -> う, E -> え, O -> お
+    </p>
+    <iframe src="./section-03.html" width="640" height="240"></iframe>
+    <a class="link-to-code" href="https://github.com/shaunanoordin/zooniverse-startwords/blob/master/section-04.html" target="_blank">(view source code)</a>
+    <p class="note">
+      If you have an onscreen keyboard AND you're capturing physical key input,
+      it's a good idea to label those onscreen keyboard buttons with the
+      corresponding physical keys.
+    </p>
+  </section>
+  <ul>
+    <li></li>
+  </ul>
 </main>
 <footer>
   <a target="_blank" href="https://www.zooniverse.org/">Zooniverse</a>
