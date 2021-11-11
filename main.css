@@ -121,9 +121,10 @@ form pre {
   justify-content: center;
 }
 
-#keyboards-list {
+#keyboards-list,
+#visual-scripts-list {
   background: #edc;
-  padding: 0.5em;
+  padding: 0.25em 0.5em;
   text-align: center;
 }
 
@@ -131,7 +132,8 @@ form pre {
   color: #888;
 }
 
-#keyboards-list button {
+#keyboards-list button,
+#visual-scripts-list button {
   cursor: pointer;
   margin: 0 0.25em;
 }
