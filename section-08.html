@@ -10,7 +10,7 @@
   <textarea id="input" rows="2"></textarea>
   <div id="keyboards-list"><span>Keyboards:</span></div>
   <div id="visual-scripts-list"></div>
-  <div id="keyboard" class="large"></div>
+  <div id="keyboard" class="v2"></div>
   <button id="submit" type="button">Submit</button>
   <hr>
   <label>Output</label>
@@ -42,7 +42,7 @@ class KeyboardApp {
 
     // Let's set the default keyboard language
     this.activeKeyboard = HEBREW_KEYBOARD
-    this.activeVisualScript = undefined
+    this.activeVisualScript = HEBREW_KEYBOARD.visualScripts['yemenite-square']
     this.setupVisualScriptsList()
     this.setupKeyboard()
   }
@@ -138,8 +138,24 @@ class KeyboardApp {
         // the associated character.
         const char = this.activeKeyboard.keys[key]
         if (char) {
-          buttonKey.innerText = char
-          buttonKey.onclick = () => { this.insertChar(char) }
+          const hasVisualReference = this.activeVisualScript
+            && this.activeKeyboard.visualScriptLayout
+            && this.activeKeyboard.visualScriptLayout[char]
+
+          // If the character has a visual reference, we add a button with an image.
+          if (hasVisualReference) {
+            const visualSpan = document.createElement('div')
+            visualSpan.style.backgroundImage = 'url(' + this.activeVisualScript + ')'
+            visualSpan.style.width = '50px'
+            visualSpan.style.height = '50px'
+            buttonKey.appendChild(visualSpan)
+            // TODO set offset, set size
+            buttonKey.onclick = () => { this.insertChar(char) }
+          // Otherwise, we add a standard button.
+          } else {
+            buttonKey.innerText = char
+            buttonKey.onclick = () => { this.insertChar(char) }
+          }
         } else {
           buttonKey.innerText = ' '
         }

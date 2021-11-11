@@ -150,3 +150,10 @@ form pre {
   font-size: 0.6em;
   color: #888;
 }
+
+.v2 .keyboard-key {
+  padding: 0;
+  border: 0;
+  width: 50px;
+  height: 60px;
+}
