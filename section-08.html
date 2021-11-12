@@ -160,7 +160,7 @@ class KeyboardApp {
 
             buttonKey.appendChild(visualSpan)
             buttonKey.onclick = () => { this.insertChar(char) }
-          
+
           // Otherwise, we add a standard button.
           } else {
             buttonKey.innerText = char
@@ -346,16 +346,19 @@ const HEBREW_KEYBOARD = {
     'Slash': 'ﭏ',  // Alef-lamed
   },
   // The following contains info on how to map each character (i.e. data) with a
-  // visual guide (i.e. image) of how the character looks like in a real-world
-  // manuscript written by human hands. (i.e. the actual script)
+  // visual reference (i.e. image) of how the character looks like in a
+  // real-world manuscript written by human hands. (i.e. the Hebrew script)
   visualScripts: {
     'yemenite-square': 'images/yemenite-square.jpg',
     'none': undefined,
   },
-  // To keep things simple, each image file (representing a visual script)
-  // follows a specific visual layout. For example, each Hebrew character's
-  // image is a 50x50px square. This consistency allows us to rapidly add new
-  // visual guides for different kind of scripts
+  // To keep things simple, each image file (representing a Hebrew script and
+  // containing an instance of every handwritten character) follows a specific
+  // visual layout. For example, each handwritten Hebrew character's image is a
+  // 50x50px square located at specific x-y coordinates. This consistency allows
+  // us to use a CSS technique known as "image sprites" to package multiple
+  // character images into one file, which in turn lets us rapidly add new
+  // visual guides for different styles of Hebrew scripts.
   visualScriptLayout: {
     'ק': { x: 440, y: 256 },  // Qof
     'ר': { x: 330, y: 256 },  // Resh
