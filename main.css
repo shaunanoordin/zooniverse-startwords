@@ -77,6 +77,18 @@ p.note {
   font-size: 0.8em;
 }
 
+img.illustration {
+  display: block;
+  margin: 0.5em auto;
+}
+
+p.caption {
+  text-align: center;
+  font-size: 0.8em;
+  margin: 0.25em auto 1em auto;
+  padding: 0;
+}
+
 form {
   padding: 1em;
 }
@@ -121,9 +133,10 @@ form pre {
   justify-content: center;
 }
 
-#keyboards-list {
+#keyboards-list,
+#visual-scripts-list {
   background: #edc;
-  padding: 0.5em;
+  padding: 0.25em 0.5em;
   text-align: center;
 }
 
@@ -131,7 +144,8 @@ form pre {
   color: #888;
 }
 
-#keyboards-list button {
+#keyboards-list button,
+#visual-scripts-list button {
   cursor: pointer;
   margin: 0 0.25em;
 }
@@ -147,4 +161,11 @@ form pre {
   display: block;
   font-size: 0.6em;
   color: #888;
+}
+
+.v2 .keyboard-key {
+  padding: 0;
+  border: 0;
+  width: 50px;
+  height: 60px;
 }

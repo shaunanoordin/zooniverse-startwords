@@ -19,7 +19,7 @@
       Welcome! This website contains supplementary content for the <a href="https://www.zooniverse.org/" target="_blank">Zooniverse</a>
       article published on <a href="https://startwords.cdh.princeton.edu/" target="_blank">Startwords</a>
       in 2021/2022. Contains HTML + JavaScript examples for the multi-language
-      transcription keyboard built for the <a href="https://github.com/zooniverse/scribes-of-the-cairo-geniza" target="_blank">Scribes of the Cairo Geniza</a>
+      transcription keyboard built for the <a href="https://www.scribesofthecairogeniza.org/" target="_blank">Scribes of the Cairo Geniza</a>
       website.
     </p>
     <p>
@@ -238,8 +238,8 @@
     <ul>
       <li>
         We've upgraded the keyboard data objects so each language, in addition
-        to having characters, also has an explicit 'direction'. (Either 'ltr' or
-        'rtl')
+        to having characters, also has an <b>explicit 'direction' value.</b>
+        (Either 'ltr' or 'rtl')
       </li>
       <li>
         The text input field has an explicit CSS <code>direction</code> value
@@ -266,13 +266,123 @@
       <input type="text" value="הגדלAPPLEהקטןBANANAסובב" style="font-size: 1.5em; color: #666; width:80%; margin: 0 auto; display: block;">
     </p>
   </section>
+  <h2>Visual Script References</h2>
+  <section>
+    <a name="section-08"></a>
+    <h3>08. Keys with Visual Script References</h3>
+    <p>
+      Now that we've proven that it's possible to map different key input to
+      characters from different languages, we need to solve another problem.
+      Our users will be looking at <b>handwritten manuscipts</b> from different
+      regions and different eras, so it'll be very useful if they can have
+      a <b>visual reference</b> for the different kind of <b>scripts
+      (handwritten text)</b> available.
+    </p>
+    <p>
+      Fortunately, this is a fairly straightforward matter of adding images -
+      for each character, from various scripts - to our visual keyboard.
+    </p>
+    <p>
+      In our example below, we've added the "Yemenite Square" visual script
+      reference for the Hebrew keyboard.
+    </p>
+    <iframe src="./section-08.html" width="720" height="520"></iframe>
+    <a class="link-to-code" href="https://github.com/shaunanoordin/zooniverse-startwords/blob/master/section-08.html" target="_blank">(view source code)</a>
+    <p>
+      The actual hard work comes in two parts. First, it requires a human hand
+      to create the reference image JPEG for each style of script, and to ensure
+      it has a consistent layout. Second, there's a one-off upfront development
+      cost to map the visuals to the data. We found that this early investment
+      is well worth it when we get into the next section.
+    </p>
+    <p class="note">
+      For our project, we decided to put every character of the "Yemenite
+      Square" Hebrew script into a single image file (i.e. as opposed to having
+      dozens of image files, one for each character) and used a CSS technique
+      called "image sprites" to separate each character when needed. For
+      example, when we want to show the 'Alef' א character (top row, right-most
+      column) we tell the code to "crop" the image at x=440px y=0px width=50px
+      height=50px.
+    </p>
+    <img
+      alt="Visual Hebrew script reference for Yemenite Square"
+      title="Visual Hebrew script reference for Yemenite Square"
+      class="illustration"
+      src="images/yemenite-square.jpg"
+    >
+    <p class="caption">
+      Visual Hebrew script reference for Yemenite Square
+    </p>
+  </section>
+  <section>
+    <a name="section-09"></a>
+    <h3>09. Multiple Visual Script References</h3>
+    <p>
+      There are several advantages to organising our "Yemenite Square" Hebrew
+      script into a single image file. Smaller downloads for our users is one,
+      but more importantly, its consistent visual layout allows us to use it as
+      a template to quickly deploy <b>multiple visual scripts.</b>
+    </p>
+    <p>
+      In the example below, you'll see that we've added <b>six new Hebrew
+      scripts,</b> and if you check the code, it only required <i>six additional
+      lines of code.</i>
+    </p>
+    <iframe src="./section-09.html" width="720" height="560"></iframe>
+    <a class="link-to-code" href="https://github.com/shaunanoordin/zooniverse-startwords/blob/master/section-09.html" target="_blank">(view source code)</a>
+    <p>
+      While it's now trivial to add new scripts from a code perspective, please
+      remember that it still takes a considerable amount of effort to create
+      each individual script's JPEG. (So developers, please remember to thank
+      the people who've been scanning the manuscripts, manually identifying the
+      handwritten characters, and putting them into a nice image file for us.)
+    </p>
+    <p class="note">
+      Below, you can see three different Hebrew scripts that we used. You'll
+      note that while we made an effort to keep the visual layout, character
+      position, and character size consistent across every style of script,
+      some scripts are missing certain characters. For example, both Maghrebi
+      Cursive and Byzantine Miniscule don't have a visual reference for the
+      'elongated Kaf' ך character. In these cases, we simply didn't have a
+      visual reference from the source.
+    </p>
+    <img
+      alt="Visual Hebrew script reference for Yemenite Square"
+      title="Visual Hebrew script reference for Yemenite Square"
+      class="illustration"
+      src="images/yemenite-square.jpg"
+    >
+    <p class="caption">
+      Visual Hebrew script reference for Yemenite Square
+    </p>
+
+    <img
+      alt="Visual Hebrew script reference for Byzantine Minuscule"
+      title="Visual Hebrew script reference for Byzantine Minuscule"
+      class="illustration"
+      src="images/byzantine-minuscule.jpg"
+    >
+    <p class="caption">
+      Visual Hebrew script reference for Byzantine Minuscule
+    </p>
+
+    <img
+      alt="Visual Hebrew script reference for Maghrebi Cursive"
+      title="Visual Hebrew script reference for Maghrebi Cursive"
+      class="illustration"
+      src="images/maghrebi-cursive.jpg"
+    >
+    <p class="caption">
+      Visual Hebrew script reference for Maghrebi Cursive
+    </p>
+  </section>
 </main>
 <footer>
   This repo was authored by
-  <a target="_blank" href="https://github.com/shaunanoordin">Shaun A. Noordin</a>,
+  <a target="_blank" href="https://github.com/snblickhan">Sam Blickhan</a>,
   <a target="_blank" href="https://github.com/wgranger">Will Granger</a>,
-  <a target="_blank" href="https://github.com/beckyrother">Becky Rother</a>, and
-  <a target="_blank" href="https://github.com/snblickhan">Sam Blickhan</a>.
+  <a target="_blank" href="https://github.com/shaunanoordin">Shaun A. Noordin</a>, and
+  <a target="_blank" href="https://github.com/beckyrother">Becky Rother</a>.
 </footer>
 </body>
 </html>
