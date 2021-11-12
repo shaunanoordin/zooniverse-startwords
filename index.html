@@ -238,8 +238,8 @@
     <ul>
       <li>
         We've upgraded the keyboard data objects so each language, in addition
-        to having characters, also has an explicit 'direction'. (Either 'ltr' or
-        'rtl')
+        to having characters, also has an <b>explicit 'direction' value.</b>
+        (Either 'ltr' or 'rtl')
       </li>
       <li>
         The text input field has an explicit CSS <code>direction</code> value
@@ -268,9 +268,39 @@
   </section>
   <section>
     <a name="section-08"></a>
-    <h3>08. Keys with Visual References</h3>
+    <h3>08. Keys with Visual Script References</h3>
+    <p>
+      Now that we've proven that it's possible to map different key input to
+      characters from different languages, we need to solve another problem.
+      Our users will be looking at <b>handwritten manuscipts</b> from different
+      regions and different eras, so it'll be very useful if they can have
+      a <b>visual reference</b> for the different kind of <b>scripts
+      (handwritten text)</b> available.
+    </p>
+    <p>
+      Fortunately, this is a fairly straightforward matter of adding images -
+      for each character, from various scripts - to our visual keyboard.
+    </p>
+    <p>
+      In our example below, we've added the "Yemenite Square" visual script
+      reference for the Hebrew keyboard.
+    </p>
     <iframe src="./section-08.html" width="720" height="420"></iframe>
     <a class="link-to-code" href="https://github.com/shaunanoordin/zooniverse-startwords/blob/master/section-07.html" target="_blank">(view source code)</a>
+    <p>
+      The actual hard work comes from creating the reference image JPEG for the
+      "Yemenite Square" script. A human hand is required to put the visual script
+      reference in a consistent layout.
+    </p>
+    <p class="note">
+      For our project, we decided to put every character in the "Yemenite
+      Square" Hebrew script into a single image file (i.e. as opposed to having
+      dozens of image files, one for each character) and used a CSS technique
+      called "image sprites" to separate each character when needed. We found
+      this method helped us organise/manage multiple different visual script
+      references, which will prove important in the next section.
+    </p>
+    <img class="illustration" src="images/yemenite-square.jpg">
   </section>
 </main>
 <footer>

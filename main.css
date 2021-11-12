@@ -77,6 +77,11 @@ p.note {
   font-size: 0.8em;
 }
 
+img.illustration {
+  display: block;
+  margin: 0.5em auto;
+}
+
 form {
   padding: 1em;
 }
