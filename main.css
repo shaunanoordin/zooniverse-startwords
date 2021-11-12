@@ -82,6 +82,13 @@ img.illustration {
   margin: 0.5em auto;
 }
 
+p.caption {
+  text-align: center;
+  font-size: 0.8em;
+  margin: 0.25em auto 1em auto;
+  padding: 0;
+}
+
 form {
   padding: 1em;
 }
