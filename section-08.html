@@ -144,13 +144,23 @@ class KeyboardApp {
 
           // If the character has a visual reference, we add a button with an image.
           if (hasVisualReference) {
+            const characterPositionOnImage = this.activeKeyboard.visualScriptLayout[char]
+            const characterSizeOnImage = '50px'  // We know this in advance
+
+            // We're using a CSS trick known as "image sprites".
+            // The visual reference image has ALL the characters in a given
+            // script, so we use CSS background image + positioning to only show
+            // specific parts of the whole reference image, corresponding to
+            // individual characters.
             const visualSpan = document.createElement('div')
             visualSpan.style.backgroundImage = 'url(' + this.activeVisualScript + ')'
-            visualSpan.style.width = '50px'
-            visualSpan.style.height = '50px'
+            visualSpan.style.backgroundPosition = -characterPositionOnImage.x + 'px ' + -characterPositionOnImage.y + 'px'
+            visualSpan.style.width = characterSizeOnImage
+            visualSpan.style.height = characterSizeOnImage
+
             buttonKey.appendChild(visualSpan)
-            // TODO set offset, set size
             buttonKey.onclick = () => { this.insertChar(char) }
+          
           // Otherwise, we add a standard button.
           } else {
             buttonKey.innerText = char
@@ -301,39 +311,39 @@ const HEBREW_KEYBOARD = {
   keys: {
     // 'KeyQ': 'Q',
     // 'KeyW': 'W',
-    'KeyE': 'ק',
-    'KeyR': 'ר',
-    'KeyT': 'א',
-    'KeyY': 'ט',
-    'KeyU': 'ו',
-    'KeyI': 'ן',
-    'KeyO': 'ם',
-    'KeyP': 'פ',
+    'KeyE': 'ק',  // Qof
+    'KeyR': 'ר',  // Resh
+    'KeyT': 'א',  // Alef
+    'KeyY': 'ט',  // Tet
+    'KeyU': 'ו',  // Waw/Vav
+    'KeyI': 'ן',  // Nun (2)
+    'KeyO': 'ם',  // Mem (2)
+    'KeyP': 'פ',  // Pe (1)
     // 'BracketLeft': '[',
     // 'BracketRight': ']',
     // --------
-    'KeyA': 'ש',
-    'KeyS': 'ד',
-    'KeyD': 'ג',
-    'KeyF': 'כ',
-    'KeyG': 'ע',
-    'KeyH': 'י',
-    'KeyJ': 'ח',
-    'KeyK': 'ל',
-    'KeyL': 'ך',
-    'Semicolon': 'ף',
+    'KeyA': 'ש',  // Shin
+    'KeyS': 'ד',  // Dalet
+    'KeyD': 'ג',  // Gimel
+    'KeyF': 'כ',  // Kaf
+    'KeyG': 'ע',  // Ayin
+    'KeyH': 'י',  // Yod
+    'KeyJ': 'ח',  // Chet
+    'KeyK': 'ל',  // Lamed
+    'KeyL': 'ך',  // Kaf
+    'Semicolon': 'ף',  // Pe (2)
     // 'Quote': '\'',
     // --------
-    'KeyZ': 'ז',
-    'KeyX': 'ס',
-    'KeyC': 'ב',
-    'KeyV': 'ה',
-    'KeyB': 'נ',
-    'KeyN': 'מ',
-    'KeyM': 'צ',
-    'Comma': 'ת',
-    'Period': 'ץ',
-    'Slash': 'ﭏ',
+    'KeyZ': 'ז',  // Zayin
+    'KeyX': 'ס',  // Samech
+    'KeyC': 'ב',  // Bet
+    'KeyV': 'ה',  // He
+    'KeyB': 'נ',  // Nun (1)
+    'KeyN': 'מ',  // Mem (1)
+    'KeyM': 'צ',  // Tsadik (1)
+    'Comma': 'ת',  // Tav
+    'Period': 'ץ',  // Tsadik (2)
+    'Slash': 'ﭏ',  // Alef-lamed
   },
   // The following contains info on how to map each character (i.e. data) with a
   // visual guide (i.e. image) of how the character looks like in a real-world
@@ -347,7 +357,36 @@ const HEBREW_KEYBOARD = {
   // image is a 50x50px square. This consistency allows us to rapidly add new
   // visual guides for different kind of scripts
   visualScriptLayout: {
-    'א': { x: 440, y: 0 },
+    'ק': { x: 440, y: 256 },  // Qof
+    'ר': { x: 330, y: 256 },  // Resh
+    'א': { x: 440, y: 0 },  // Alef
+    'ט': { x: 0, y: 0 },  // Tet
+    'ו': { x: 0, y: 0 },  // Waw/Vav
+    'ן': { x: 0, y: 0 },  // Nun (2)
+    'ם': { x: 0, y: 0 },  // Mem (2)
+    'פ': { x: 0, y: 0 },  // Pe (1)
+    // --------
+    'ש': { x: 0, y: 0 },  // Shin
+    'ד': { x: 0, y: 0 },  // Dalet
+    'ג': { x: 0, y: 0 },  // Gimel
+    'כ': { x: 0, y: 0 },  // Kaf
+    'ע': { x: 0, y: 0 },  // Ayin
+    'י': { x: 0, y: 0 },  // Yod
+    'ח': { x: 0, y: 0 },  // Chet
+    'ל': { x: 0, y: 0 },  // Lamed
+    'ך': { x: 0, y: 0 },  // Kaf
+    'ף': { x: 0, y: 0 },  // Pe (2)
+    // --------
+    'ז': { x: 0, y: 0 },  // Zayin
+    'ס': { x: 0, y: 0 },  // Samech
+    'ב': { x: 0, y: 0 },  // Bet
+    'ה': { x: 0, y: 0 },  // He
+    'נ': { x: 0, y: 0 },  // Nun (1)
+    'מ': { x: 0, y: 0 },  // Mem (1)
+    'צ': { x: 0, y: 0 },  // Tsadik (1)
+    'ת': { x: 0, y: 0 },  // Tav
+    'ץ': { x: 0, y: 0 },  // Tsadik (2)
+    'ﭏ': { x: 0, y: 0 },  // Alef-lamed
   },
 }
 
